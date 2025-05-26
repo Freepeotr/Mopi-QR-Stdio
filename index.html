@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mopi QR Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f4f6fa;
+      color: #222;
+      line-height: 1.7;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: auto;
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    }
+
+    /* Logo */
+    .logo-center {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 25px;
+    }
+
+    .logo-center img {
+      width: 120px;
+      border-radius: 15px;
+      border: 4px solid #1a237e;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-center img:hover {
+      transform: scale(1.05);
+    }
+
+    h1, h2 {
+      color: #1a237e;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 2em;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    p {
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .qr-sample {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .qr-sample img {
+      width: 160px;
+      height: 160px;
+      border: 6px solid #1a237e;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .qr-sample img:hover {
+      transform: scale(1.05);
+    }
+
+    .reasons, .reviews, .pricing {
+      margin-top: 30px;
+    }
+
+    .reasons ul {
+      padding-left: 20px;
+    }
+
+    .reasons li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 20px;
+      color: #444;
+    }
+
+    .reasons li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #1a237e;
+    }
+
+    /* Pricing Styles */
+    .pricing {
+      text-align: center;
+    }
+
+    .pricing-cards {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .price-card {
+      background: #e8eaf6;
+      border-radius: 15px;
+      padding: 25px 20px;
+      flex: 1 1 30%;
+      box-shadow: 0 3px 10px rgba(26,35,126,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+
+    .price-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(26,35,126,0.3);
+    }
+
+    .price-card h3 {
+      color: #1a237e;
+      margin-bottom: 15px;
+      font-weight: 600;
+      font-size: 1.5em;
+    }
+
+    .price-amount {
+      font-size: 2.5em;
+      font-weight: 700;
+      color: #283593;
+      margin-bottom: 15px;
+    }
+
+    .price-details {
+      color: #3f51b5;
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+
+    .price-points {
+      list-style: none;
+      padding-left: 0;
+      color: #222;
+      font-size: 0.95em;
+      line-height: 1.4;
+    }
+
+    .price-points li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 22px;
+    }
+
+    .price-points li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #283593;
+      font-weight: 700;
+    }
+
+    /* Reviews */
+    .review-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 25px;
+      background: #f9f9f9;
+      padding: 15px 20px;
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .review-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .review-box img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    .review-content {
+      flex: 1;
+    }
+
+    .review-content strong {
+      color: #1a237e;
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #999;
+    }
+
+    @media (max-width: 900px) {
+      .pricing-cards {
+        flex-direction: column;
+        gap: 25px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .review-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .qr-sample img {
+        width: 120px;
+        height: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="logo-center">
+      <img src="https://i.ibb.co/8DjmVnsp/file.jpg" alt="Mopi QR Studio Logo" />
+    </div>
+
+    <h1>Mopi QR Studio</h1>
+
+    <p><strong>Mopi QR Studio</strong> helps businesses collect more Google reviews using smart, scannable QR posters. Designed to look modern and stylish, these posters make it easy for your customers to leave a 5-star review in just one scan.</p>
+
+    <p>Whether you're a restaurant, salon, or small shop owner, our service is built to increase your online trust and visibility through customer feedback.</p>
+
+    <div class="qr-sample">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://search.google.com/local/writereview?placeid=ChIJdZpDfgcZTIYRfwpyLhcLaiU" alt="QR Sample">
+      <p style="margin-top: 10px; font-size: 14px; color: #666;">(Scan this QR to view a sample review page)</p>
+    </div>
+
+    <div class="reasons">
+      <h2>Why Business Owners Use Mopi QR Studio</h2>
+      <ul>
+        <li>Increase your Google reviews effortlessly</li>
+        <li>Professional design that builds trust</li>
+        <li>Easy to print and display in your shop</li>
+        <li>Boost your local SEO rankings</li>
+        <li>Customers scan and leave feedback instantly</li>
+      </ul>
+    </div>
+
+    <div class="pricing">
+      <h2>Pricing Plans</h2>
+      <div class="pricing-cards">
+
+        <div class="price-card">
+          <h3>Simple QR Code</h3>
+          <div class="price-amount">$5</div>
+          <div class="price-details">Basic QR code only</div>
+          <ul class="price-points">
+            <li>Instant delivery within 2-3 hours</li>
+            <li>Unlimited revisions</li>
+            <li>Payment after work completion</li>
+          </ul>
+        </div>
+
+        <div class="price-card">
+          <h3>QR + Logo</h3>
+          <div class="price-amount">$7</div>
+          <div class="price-details">QR code with your logo</div>
+          <ul class="price-points">
+            <li>Instant delivery within 2-3 hours</li>
+            <li>Unlimited revisions</li>
+            <li>Payment after work completion</li>
+          </ul>
+        </div>
+
+        <div class="price-card">
+          <h3>Full Branded</h3>
+          <div class="price-amount">$10</div>
+          <div class="price-details">Fully branded custom design</div>
+          <ul class="price-points">
+            <li>Instant delivery within 2-3 hours</li>
+            <li>Unlimited revisions</li>
+            <li>Payment after work completion</li>
+          </ul>
+        </div>
+
+      </div>
+      <p style="margin-top: 25px; color: #555; font-style: italic;">* We prioritize your satisfaction — no payment required until you approve the final design.</p>
+    </div>
+
+    <div class="reviews">
+      <h2>What Our Customers Say</h2>
+
+      <div class="review-box">
+        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer 1" />
+        <div class="review-content">
+          <strong>Sarah K.</strong>  
+          <p>“Mopi QR Studio made it super easy for my restaurant to get real Google reviews. Highly recommend!”</p>
+        </div>
+      </div>
+
+      <div class="review-box">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer 2" />
+        <div class="review-content">
+          <strong>James P.</strong>  
+          <p>“Great service and fast delivery. My customers love the custom QR code with our logo.”</p>
+        </div>
+      </div>
+
+      <div class="review-box">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer 3" />
+        <div class="review-content">
+          <strong>Linda R.</strong>  
+          <p>“Professional design, easy to use, and helped boost our online presence within days.”</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    &copy; 2025 Mopi QR Studio. All rights reserved.
+  </footer>
+
+</body>
+</html>
